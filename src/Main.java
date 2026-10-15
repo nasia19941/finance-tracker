@@ -21,21 +21,27 @@ public class Main {
             String choice = scanner.nextLine();
 
             if (choice.equals("1")) {
-                System.out.print("Description: " );
-                String description = scanner.nextLine();
+                try {
+                    System.out.print("Description: ");
+                    String description = scanner.nextLine();
 
-                System.out.print("Amount: " );
-                double amount = Double.parseDouble(scanner.nextLine());
+                    System.out.print("Amount: ");
+                    double amount = Double.parseDouble(scanner.nextLine());
 
-                System.out.print("Category: " );
-                String category = scanner.nextLine();
+                    System.out.print("Category: ");
+                    String category = scanner.nextLine();
 
-                System.out.print("Is it an expense? (yes/no): " );
-                String  answer = scanner.nextLine();
-                boolean expense = answer.equals("yes");
+                    System.out.print("Is it an expense? (yes/no): ");
+                    String answer = scanner.nextLine();
+                    boolean expense = answer.equals("yes");
 
-                tracker.addTransaction(new Transaction(description, amount, category, expense));
-                System.out.println("Added!");
+                    tracker.addTransaction(new Transaction(description, amount, category, expense));
+                    System.out.println("Added!");
+                }catch (NumberFormatException e) {
+                    System.out.println("Amount must be number");
+                }catch (IllegalArgumentException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
 
             }else if (choice.equals("2")) {
                 for (Transaction t : tracker.getTransactions()) {
