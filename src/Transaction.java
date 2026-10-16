@@ -6,7 +6,7 @@ public class Transaction {
 
     public Transaction(String description, double amount, String category, boolean expense) {
         if (amount <=  0) {
-            throw new IllegalArgumentException("Amount must be greater than 0");
+            throw new InvalidAmountException("Amount must be greater than 0");
         }
         this.description = description;
         this.amount = amount;

@@ -7,7 +7,7 @@ public class Main {
 
         tracker.addTransaction(new Transaction("Salary", 1000, "Work", false));
         tracker.addTransaction(new Transaction("Supermarket", 45.5, "Food" , true));
-        tracker.addTransaction(new Transaction("rent" , 400 ,"Hone", true));
+        tracker.addTransaction(new Transaction("rent" , 400 ,"Home", true));
 
 
         boolean running = true;
@@ -39,7 +39,7 @@ public class Main {
                     System.out.println("Added!");
                 }catch (NumberFormatException e) {
                     System.out.println("Amount must be number");
-                }catch (IllegalArgumentException e) {
+                }catch (InvalidAmountException e) {
                     System.out.println("Error: " + e.getMessage());
                 }
 
